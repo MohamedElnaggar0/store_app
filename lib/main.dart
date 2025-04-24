@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:store_app/core/configs/app_theme.dart';
+import 'package:store_app/features/splash/presentation/views/splash_view.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,14 +13,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text('My First Flutter App'),
-        ),
-        body: Center(
-          child: Text('Hello, World!'),
-        ),
-      ),
+      debugShowCheckedModeBanner: false,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
+      themeMode: ThemeMode.system,
+      home: SplashView(),
     );
   }
 }

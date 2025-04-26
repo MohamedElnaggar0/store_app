@@ -12,7 +12,7 @@ class AppTheme {
       fillColor: AppColor.lightSecondBackgroundColor,
       hintStyle: const TextStyle(
           color: Color(0xFF8E8E8E), fontWeight: FontWeight.w500),
-      contentPadding: EdgeInsets.all(30),
+      contentPadding: EdgeInsets.all(15),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4),
         borderSide: BorderSide.none,
@@ -38,7 +38,7 @@ class AppTheme {
       fillColor: AppColor.darkSecondBackgroundColor,
       hintStyle: const TextStyle(
           color: Color(0xFFA7A7A7), fontWeight: FontWeight.w500),
-      contentPadding: EdgeInsets.all(30),
+      contentPadding: EdgeInsets.all(10),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4),
         borderSide: BorderSide.none,

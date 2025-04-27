@@ -38,7 +38,7 @@ class AppTheme {
       fillColor: AppColor.darkSecondBackgroundColor,
       hintStyle: const TextStyle(
           color: Color(0xFFA7A7A7), fontWeight: FontWeight.w500),
-      contentPadding: EdgeInsets.all(10),
+      contentPadding: EdgeInsets.all(20),
       border: OutlineInputBorder(
         borderRadius: BorderRadius.circular(4),
         borderSide: BorderSide.none,

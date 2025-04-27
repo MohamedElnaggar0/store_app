@@ -14,7 +14,6 @@ class CustomTextField extends StatelessWidget {
         return null;
       },
       onChanged: onChanged,
-      maxLines: 1,
       decoration: InputDecoration(
         hintText: hintText,
         isDense: true,

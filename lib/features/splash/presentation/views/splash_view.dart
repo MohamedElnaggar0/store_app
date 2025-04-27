@@ -14,7 +14,7 @@ class SplashView extends StatelessWidget {
     return BlocListener<SplashCubit, SplashState>(
         listener: (context, state) {
           if (state is Authenticated) {
-            return GoRouter.of(context).go(AppRouter.kHomeView);
+            return GoRouter.of(context).go(AppRouter.kSigninEmailView);
           }
         },
         child: const Scaffold(

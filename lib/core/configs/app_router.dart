@@ -1,9 +1,9 @@
 import 'package:go_router/go_router.dart';
-import 'package:store_app/features/auth/presentation/views/signin.dart';
+import 'package:store_app/features/auth/presentation/views/signin_email.dart';
 import 'package:store_app/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
-  static const kHomeView = '/homeView';
+  static const kSigninEmailView = '/signinEmailView';
 
   static final router = GoRouter(
     routes: [
@@ -12,8 +12,8 @@ abstract class AppRouter {
         builder: (context, state) => const SplashView(),
       ),
       GoRoute(
-        path: kHomeView,
-        builder: (context, state) => const SigninView(),
+        path: kSigninEmailView,
+        builder: (context, state) => const SigninEmailView(),
       ),
     ],
   );

@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/configs/app_router.dart';
+import 'package:store_app/core/widgets/custom_back_botton.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
-import 'package:store_app/features/auth/presentation/widgets/custom_text_widgets.dart';
 
-class SigninPasswordViewBody extends StatelessWidget {
-  const SigninPasswordViewBody({super.key});
+class ForgotPasswordViewBody extends StatelessWidget {
+  const ForgotPasswordViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,24 +16,21 @@ class SigninPasswordViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 80),
-          CustomText('Sign in'),
-          const SizedBox(height: 20),
-          CustomTextField(
-            hintText: 'Password',
-            obscureText: true,
+          const SizedBox(height: 30),
+          CustomBackBotton(
+            onTap: () {
+              GoRouter.of(context).go(AppRouter.kSigninPasswordView);
+            },
           ),
+          const SizedBox(height: 20),
+          CustomText('Forgot Password'),
+          const SizedBox(height: 20),
+          CustomTextField(hintText: 'Enter Email Address'),
           const SizedBox(height: 20),
           CustomButton(
             text: 'Continue',
+            onTap: () {},
           ),
-          const SizedBox(height: 10),
-          CustomTextWidgets(
-              text: 'Forgot Password? ',
-              clickableText: 'Reset',
-              onTap: () {
-                GoRouter.of(context).go(AppRouter.kForgotPasswordView);
-              }),
         ],
       ),
     );

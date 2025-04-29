@@ -32,11 +32,14 @@ class $AssetsImagesGen {
 class $AssetsSvgGen {
   const $AssetsSvgGen();
 
+  /// File path: assets/svg/back_botton.svg
+  String get backBotton => 'assets/svg/back_botton.svg';
+
   /// File path: assets/svg/logo.svg
   String get logo => 'assets/svg/logo.svg';
 
   /// List of all assets
-  List<String> get values => [logo];
+  List<String> get values => [backBotton, logo];
 }
 
 class Assets {

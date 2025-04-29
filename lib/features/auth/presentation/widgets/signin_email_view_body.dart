@@ -12,7 +12,7 @@ class SigninEmailViewBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(15),
+      padding: const EdgeInsets.all(20),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -31,7 +31,11 @@ class SigninEmailViewBody extends StatelessWidget {
           ),
           const SizedBox(height: 10),
           CustomTextWidgets(
-              text: 'Dont have an Account? ', clickableText: 'Create One')
+              text: 'Dont have an Account? ',
+              clickableText: 'Create One',
+              onTap: () {
+                GoRouter.of(context).go(AppRouter.kSignupView);
+              }),
         ],
       ),
     );

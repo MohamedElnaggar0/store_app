@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/configs/app_router.dart';
+import 'package:store_app/core/widgets/basic_app_bar.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
@@ -16,8 +17,15 @@ class SigninPasswordViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 80),
-          CustomText('Sign in'),
+          BasicAppBar(
+            hideBack: false,
+          ),
+          SizedBox(height: 10),
+          CustomText(
+            'Sign in',
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
           const SizedBox(height: 20),
           CustomTextField(
             hintText: 'Password',
@@ -32,7 +40,7 @@ class SigninPasswordViewBody extends StatelessWidget {
               text: 'Forgot Password? ',
               clickableText: 'Reset',
               onTap: () {
-                GoRouter.of(context).go(AppRouter.kForgotPasswordView);
+                GoRouter.of(context).push(AppRouter.kForgotPasswordView);
               }),
         ],
       ),

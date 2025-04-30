@@ -25,8 +25,12 @@ class $AssetsImagesGen {
   /// File path: assets/images/logo_1.png
   AssetGenImage get logo1 => const AssetGenImage('assets/images/logo_1.png');
 
+  /// File path: assets/images/send_icon.png
+  AssetGenImage get sendIcon =>
+      const AssetGenImage('assets/images/send_icon.png');
+
   /// List of all assets
-  List<AssetGenImage> get values => [logo1];
+  List<AssetGenImage> get values => [logo1, sendIcon];
 }
 
 class $AssetsSvgGen {
@@ -38,8 +42,11 @@ class $AssetsSvgGen {
   /// File path: assets/svg/logo.svg
   String get logo => 'assets/svg/logo.svg';
 
+  /// File path: assets/svg/send_icon.svg
+  String get sendIcon => 'assets/svg/send_icon.svg';
+
   /// List of all assets
-  List<String> get values => [backBotton, logo];
+  List<String> get values => [backBotton, logo, sendIcon];
 }
 
 class Assets {

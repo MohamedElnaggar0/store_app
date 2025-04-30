@@ -17,7 +17,11 @@ class SigninEmailViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           SizedBox(height: 80),
-          CustomText('Sign in'),
+          CustomText(
+            'Sign in',
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
           const SizedBox(height: 20),
           CustomTextField(
             hintText: 'Email Address',
@@ -26,7 +30,7 @@ class SigninEmailViewBody extends StatelessWidget {
           CustomButton(
             text: 'Continue',
             onTap: () {
-              GoRouter.of(context).go(AppRouter.kSigninPasswordView);
+              GoRouter.of(context).push(AppRouter.kSigninPasswordView);
             },
           ),
           const SizedBox(height: 10),
@@ -34,7 +38,7 @@ class SigninEmailViewBody extends StatelessWidget {
               text: 'Dont have an Account? ',
               clickableText: 'Create One',
               onTap: () {
-                GoRouter.of(context).go(AppRouter.kSignupView);
+                GoRouter.of(context).push(AppRouter.kSignupView);
               }),
         ],
       ),

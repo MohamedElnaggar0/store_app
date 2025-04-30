@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:store_app/core/configs/app_router.dart';
-import 'package:store_app/core/widgets/custom_back_botton.dart';
+import 'package:store_app/core/widgets/basic_app_bar.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
@@ -17,14 +17,13 @@ class SignupViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 30),
-          CustomBackBotton(
-            onTap: () {
-              GoRouter.of(context).go(AppRouter.kSigninEmailView);
-            },
-          ),
+          BasicAppBar(hideBack: false),
           const SizedBox(height: 20),
-          CustomText('Create Account'),
+          CustomText(
+            'Create Account',
+            fontSize: 32,
+            fontWeight: FontWeight.bold,
+          ),
           const SizedBox(height: 20),
           CustomTextField(hintText: 'Firstname'),
           const SizedBox(height: 20),
@@ -39,7 +38,8 @@ class SignupViewBody extends StatelessWidget {
           CustomTextWidgets(
             text: 'Forgot Password ? ',
             clickableText: 'Reset',
-            onTap: () => GoRouter.of(context).go(AppRouter.kForgotPasswordView),
+            onTap: () =>
+                GoRouter.of(context).push(AppRouter.kForgotPasswordView),
           ),
         ],
       ),

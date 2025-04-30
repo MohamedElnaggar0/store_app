@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/core/configs/app_color.dart';
+import 'package:store_app/core/configs/theme/app_color.dart';
 import 'package:store_app/core/configs/app_router.dart';
 import 'package:store_app/features/splash/presentation/bloc/cubit/splash_cubit.dart';
 import 'package:store_app/features/splash/presentation/widgets/splash_view_body.dart';

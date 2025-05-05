@@ -3,9 +3,12 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:store_app/features/auth/data/models/user_creation_req.dart';
 
-class AuthFirebaseService {}
+abstract class AuthFirebaseService {
+  Future<Either> signup(UserCreationReq userCreationReq);
+}
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
+  @override
   Future<Either> signup(UserCreationReq userCreationReq) async {
     try {
       var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
@@ -20,9 +23,9 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
         'email': userCreationReq.email,
         'firstName': userCreationReq.firstName,
         'lastName': userCreationReq.lastName,
-        'password': userCreationReq.password,
         'gender': userCreationReq.gender,
         'age': userCreationReq.age,
+        'createdAt': FieldValue.serverTimestamp(),
       });
       return right('success');
     } on FirebaseAuthException catch (e) {

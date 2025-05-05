@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:store_app/core/widgets/basic_app_bar.dart';
+import 'package:go_router/go_router.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/gen/assets.gen.dart';
+
+import '../../../../core/configs/app_router.dart';
 
 class SendToEmailViewBody extends StatelessWidget {
   const SendToEmailViewBody({super.key});
@@ -13,8 +15,7 @@ class SendToEmailViewBody extends StatelessWidget {
       padding: const EdgeInsets.all(20.0),
       child: Column(
         children: [
-          BasicAppBar(hideBack: false),
-          Spacer(),
+          const Spacer(),
           Image.asset(
             Assets.images.sendIcon.path,
             height: 100,
@@ -33,8 +34,15 @@ class SendToEmailViewBody extends StatelessWidget {
           const SizedBox(
             height: 20,
           ),
-          CustomButton(text: 'Return to Login'),
-          Spacer()
+          CustomButton(
+            text: 'Return to Login',
+            onTap: () {
+              GoRouter.of(context).go(AppRouter.kSigninEmailView);
+            },
+          ),
+          const Spacer(
+            flex: 2,
+          )
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:go_router/go_router.dart';
 import 'package:store_app/features/auth/presentation/views/forgot_password_view.dart';
+import 'package:store_app/features/auth/presentation/views/gender_and_age_selection_view.dart';
 import 'package:store_app/features/auth/presentation/views/send_to_email_view.dart';
 import 'package:store_app/features/auth/presentation/views/signin_email_view.dart';
 import 'package:store_app/features/auth/presentation/views/signin_password_view.dart';
@@ -12,6 +13,7 @@ abstract class AppRouter {
   static const kSignupView = '/signupView';
   static const kForgotPasswordView = '/forgotPasswordView';
   static const kSendToEmailView = '/sendToEmailView';
+  static const kGenderAndAgeSelectionView = '/genderAndAgeSelectionView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -36,6 +38,9 @@ abstract class AppRouter {
       GoRoute(
           path: kSendToEmailView,
           builder: (context, state) => const SendToEmailView()),
+      GoRoute(
+          path: kGenderAndAgeSelectionView,
+          builder: (context, state) => const GenderAndAgeSelectionView()),
     ],
   );
 }

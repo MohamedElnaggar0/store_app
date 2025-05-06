@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/core/configs/app_router.dart';
+import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
@@ -16,14 +16,14 @@ class SigninEmailViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          SizedBox(height: 80),
-          CustomText(
+          const SizedBox(height: 80),
+          const CustomText(
             'Sign in',
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 20),
-          CustomTextField(
+          const CustomTextField(
             hintText: 'Email Address',
           ),
           const SizedBox(height: 20),

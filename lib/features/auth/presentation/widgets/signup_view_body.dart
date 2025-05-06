@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/core/configs/app_router.dart';
+import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
@@ -17,23 +17,24 @@ class SignupViewBody extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           const SizedBox(height: 20),
-          CustomText(
+          const CustomText(
             'Create Account',
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 20),
-          CustomTextField(hintText: 'Firstname'),
+          const CustomTextField(hintText: 'Firstname'),
           const SizedBox(height: 20),
-          CustomTextField(hintText: 'Lastname'),
+          const CustomTextField(hintText: 'Lastname'),
           const SizedBox(height: 20),
-          CustomTextField(hintText: 'Email Address'),
+          const CustomTextField(hintText: 'Email Address'),
           const SizedBox(height: 20),
-          CustomTextField(hintText: 'Password'),
+          const CustomTextField(hintText: 'Password'),
           const SizedBox(height: 40),
           CustomButton(
             text: 'Continue',
-            onTap: () => GoRouter.of(context).push(AppRouter.kSigninEmailView),
+            onTap: () =>
+                GoRouter.of(context).push(AppRouter.kGenderAndAgeSelectionView),
           ),
           const SizedBox(height: 40),
           CustomTextWidgets(

@@ -4,7 +4,7 @@ import 'package:store_app/features/auth/presentation/widgets/custom_button.dart'
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/gen/assets.gen.dart';
 
-import '../../../../core/configs/app_router.dart';
+import '../../../../core/configs/router/app_router.dart';
 
 class SendToEmailViewBody extends StatelessWidget {
   const SendToEmailViewBody({super.key});

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:store_app/core/configs/app_router.dart';
+import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
@@ -16,18 +16,18 @@ class SigninPasswordViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          CustomText(
+          const CustomText(
             'Sign in',
             fontSize: 32,
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 20),
-          CustomTextField(
+          const CustomTextField(
             hintText: 'Password',
             obscureText: true,
           ),
           const SizedBox(height: 20),
-          CustomButton(
+          const CustomButton(
             text: 'Continue',
           ),
           const SizedBox(height: 10),

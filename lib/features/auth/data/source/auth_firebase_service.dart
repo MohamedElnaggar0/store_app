@@ -11,7 +11,7 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> signup(UserCreationReq userCreationReq) async {
     try {
-      var data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
+      final data = await FirebaseAuth.instance.createUserWithEmailAndPassword(
         email: userCreationReq.email!,
         password: userCreationReq.password!,
       );

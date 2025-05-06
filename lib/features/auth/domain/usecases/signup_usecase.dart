@@ -6,7 +6,7 @@ import 'package:store_app/service_locator.dart';
 
 class SignupUsecase implements UseCase<Either, UserCreationReq> {
   @override
-  Future<Either> call(UserCreationReq? params) async {
+  Future<Either> call({UserCreationReq? params}) async {
     return await s1<AuthRepository>().signup(params!);
   }
 }

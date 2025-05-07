@@ -7,7 +7,7 @@ import 'package:store_app/service_locator.dart';
 part 'get_ages_state.dart';
 
 class GetAgesCubit extends Cubit<GetAgesState> {
-  GetAgesCubit() : super(GetAgesInitial());
+  GetAgesCubit() : super(GetAgesLoading());
 
   void getAges() async {
     final returnData = await s1<GetAgeUsecase>().call();

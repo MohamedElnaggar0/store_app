@@ -1,5 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/core/configs/theme/app_theme.dart';
@@ -12,14 +13,14 @@ Future<void> main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  setupLocator();
+  debugPaintSizeEnabled = false;
+  await setupLocator();
   runApp(const StoreApp());
 }
 
 class StoreApp extends StatelessWidget {
   const StoreApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return BlocProvider(

@@ -43,8 +43,10 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
   @override
   Future<Either> getAge() async {
     try {
-      final returnData =
-          await FirebaseFirestore.instance.collection('Ages').get();
+      final returnData = await FirebaseFirestore.instance
+          .collection('Ages')
+          .orderBy("value", descending: false)
+          .get();
       return right(returnData.docs);
     } catch (e) {
       return left('error');

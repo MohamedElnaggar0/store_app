@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/common/helper/app_bottom_sheet.dart';
 import 'package:store_app/core/configs/theme/app_color.dart';
 import 'package:store_app/features/auth/presentation/blocs/age_selection_cubit/age_selection_cubit.dart';
+import 'package:store_app/features/auth/presentation/blocs/get_ages_cubit/get_ages_cubit.dart';
 import 'package:store_app/features/auth/presentation/widgets/age.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
 
@@ -11,12 +12,32 @@ class AgeSelection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => AgeSelectionCubit(),
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => AgeSelectionCubit(),
+        ),
+        BlocProvider(
+          create: (context) => GetAgesCubit()..getAges(),
+        )
+      ],
       child: BlocBuilder<AgeSelectionCubit, String>(
         builder: (context, state) {
           return GestureDetector(
-            onTap: () => AppBottomSheet.showBottomSheet(context, const Age()),
+            onTap: () => AppBottomSheet.showBottomSheet(
+              context,
+              MultiBlocProvider(
+                providers: [
+                  BlocProvider.value(
+                    value: (context).read<AgeSelectionCubit>(),
+                  ),
+                  BlocProvider.value(
+                    value: (context).read<GetAgesCubit>(),
+                  ),
+                ],
+                child: const Age(),
+              ),
+            ),
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 20),
               height: 60,

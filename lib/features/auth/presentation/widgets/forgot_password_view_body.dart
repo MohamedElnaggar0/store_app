@@ -22,7 +22,9 @@ class ForgotPasswordViewBody extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Enter Email Address'),
+          const CustomTextField(
+            hintText: 'Enter Email Address',
+          ),
           const SizedBox(height: 20),
           CustomButton(
             text: 'Continue',

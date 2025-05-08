@@ -3,12 +3,16 @@ import 'package:go_router/go_router.dart';
 import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
-import 'package:store_app/features/auth/presentation/widgets/custom_text_field.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text_widgets.dart';
+import 'package:store_app/features/auth/presentation/widgets/signup_text_fields.dart';
 
 class SignupViewBody extends StatelessWidget {
-  const SignupViewBody({super.key});
+  SignupViewBody({super.key});
 
+  final firstnameController = TextEditingController();
+  final lastnameController = TextEditingController();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -23,25 +27,31 @@ class SignupViewBody extends StatelessWidget {
             fontWeight: FontWeight.bold,
           ),
           const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Firstname'),
-          const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Lastname'),
-          const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Email Address'),
-          const SizedBox(height: 20),
-          const CustomTextField(hintText: 'Password'),
-          const SizedBox(height: 40),
+          SignupTextFields(
+            firstnameController: firstnameController,
+            lastnameController: lastnameController,
+            emailController: emailController,
+            passwordController: passwordController,
+          ),
           CustomButton(
             text: 'Continue',
-            onTap: () =>
-                GoRouter.of(context).push(AppRouter.kGenderAndAgeSelectionView),
+            onTap: () => GoRouter.of(context).push(
+              AppRouter.kGenderAndAgeSelectionView,
+              extra: {
+                'firstName': firstnameController.text,
+                'lastName': lastnameController.text,
+                'email': emailController.text,
+                'password': passwordController.text,
+              },
+            ),
           ),
           const SizedBox(height: 40),
           CustomTextWidgets(
             text: 'Forgot Password ? ',
             clickableText: 'Reset',
-            onTap: () =>
-                GoRouter.of(context).push(AppRouter.kForgotPasswordView),
+            onTap: () => GoRouter.of(context).push(
+              AppRouter.kForgotPasswordView,
+            ),
           ),
         ],
       ),

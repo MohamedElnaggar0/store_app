@@ -40,7 +40,10 @@ abstract class AppRouter {
           builder: (context, state) => const SendToEmailView()),
       GoRoute(
           path: kGenderAndAgeSelectionView,
-          builder: (context, state) => const GenderAndAgeSelectionView()),
+          builder: (context, state) {
+            final signupData = state.extra as Map<String, dynamic>;
+            return GenderAndAgeSelectionView(signupData: signupData);
+          }),
     ],
   );
 }

@@ -12,7 +12,9 @@ class GetAgesCubit extends Cubit<GetAgesState> {
   void getAges() async {
     final returnData = await s1<GetAgeUsecase>().call();
     returnData.fold(
-      (message) => emit(GetAgesFailure(message)),
+      (message) => emit(
+        GetAgesFailure(message),
+      ),
       (data) => emit(
         GetAgesSuccess(data),
       ),

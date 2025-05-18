@@ -2,10 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:store_app/features/auth/data/models/user_creation_req.dart';
+import 'package:store_app/features/auth/data/models/user_signin_req.dart';
 
 abstract class AuthFirebaseService {
   Future<Either> signup(UserCreationReq userCreationReq);
   Future<Either> getAge();
+
+  Future<Either> singnin(UserSigninReq userSigninReq);
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -50,6 +53,27 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       return right(returnData.docs);
     } catch (e) {
       return left('error');
+    }
+  }
+
+  @override
+  Future<Either> singnin(UserSigninReq userSigninReq) async {
+    try {
+      final data = await FirebaseAuth.instance.signInWithEmailAndPassword(
+        email: userSigninReq.email,
+        password: userSigninReq.password,
+      );
+      return right(data);
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        return left('البريد الإلكتروني غير موجود');
+      } else if (e.code == 'wrong-password') {
+        return left('كلمة المرور غير صحيحة');
+      } else if (e.code == 'invalid-email') {
+        return left('البريد الإلكتروني غير صالح');
+      } else {
+        return left('حدث خطأ أثناء تسجيل الدخول');
+      }
     }
   }
 }

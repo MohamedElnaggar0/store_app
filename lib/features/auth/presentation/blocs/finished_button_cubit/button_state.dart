@@ -1,6 +1,5 @@
-part of 'finished_button_cubit.dart';
+part of 'button_cubit.dart';
 
-@immutable
 sealed class FinishedButtonState {}
 
 final class FinishedButtonInitial extends FinishedButtonState {}

@@ -60,8 +60,8 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
   Future<Either> singnin(UserSigninReq userSigninReq) async {
     try {
       final data = await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: userSigninReq.email,
-        password: userSigninReq.password,
+        email: userSigninReq.email!,
+        password: userSigninReq.password!,
       );
       return right(data);
     } on FirebaseAuthException catch (e) {

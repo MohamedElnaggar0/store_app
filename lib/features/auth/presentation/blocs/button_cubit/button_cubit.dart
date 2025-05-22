@@ -3,24 +3,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:store_app/core/usecase/usecase.dart';
 
-part 'finished_button_state.dart';
+part 'button_state.dart';
 
-class FinishedButtonCubit extends Cubit<FinishedButtonState> {
-  FinishedButtonCubit() : super(FinishedButtonInitial());
+class ButtonCubit extends Cubit<ButtonState> {
+  ButtonCubit() : super(ButtonInitial());
   Future<void> clickButton({dynamic params, required UseCase usecase}) async {
-    emit(FinishedButtonLoading());
+    emit(ButtonLoading());
     try {
       final Either data = await usecase.call(params: params);
       data.fold(
         (failure) {
-          emit(FinishedButtonFailure(message: 'something went wrong'));
+          emit(ButtonFailure(message: 'something went wrong'));
         },
         (data) {
-          emit(FinishedButtonSuccess());
+          emit(ButtonSuccess());
         },
       );
     } catch (e) {
-      emit(FinishedButtonFailure(message: e.toString()));
+      emit(ButtonFailure(message: e.toString()));
     }
   }
 }

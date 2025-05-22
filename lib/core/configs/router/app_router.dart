@@ -5,6 +5,7 @@ import 'package:store_app/features/auth/presentation/views/send_to_email_view.da
 import 'package:store_app/features/auth/presentation/views/signin_email_view.dart';
 import 'package:store_app/features/auth/presentation/views/signin_password_view.dart';
 import 'package:store_app/features/auth/presentation/views/signup_view.dart';
+import 'package:store_app/features/home/presentation/views/home_view.dart';
 import 'package:store_app/features/splash/presentation/views/splash_view.dart';
 
 abstract class AppRouter {
@@ -14,6 +15,7 @@ abstract class AppRouter {
   static const kForgotPasswordView = '/forgotPasswordView';
   static const kSendToEmailView = '/sendToEmailView';
   static const kGenderAndAgeSelectionView = '/genderAndAgeSelectionView';
+  static const kHomeView = '/homeView';
   static final router = GoRouter(
     routes: [
       GoRoute(
@@ -44,6 +46,7 @@ abstract class AppRouter {
             final signupData = state.extra as Map<String, dynamic>;
             return GenderAndAgeSelectionView(signupData: signupData);
           }),
+      GoRoute(path: kHomeView, builder: (context, state) => const HomeView()),
     ],
   );
 }

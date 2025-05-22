@@ -5,7 +5,7 @@ import 'package:store_app/core/configs/router/app_router.dart';
 import 'package:store_app/core/widgets/basic_app_bar.dart';
 import 'package:store_app/features/auth/data/models/user_creation_req.dart';
 import 'package:store_app/features/auth/domain/usecases/signup_usecase.dart';
-import 'package:store_app/features/auth/presentation/blocs/finished_button_cubit/finished_button_cubit.dart';
+import 'package:store_app/features/auth/presentation/blocs/button_cubit/button_cubit.dart';
 import 'package:store_app/features/auth/presentation/widgets/age_selection.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_button.dart';
 import 'package:store_app/features/auth/presentation/widgets/custom_text.dart';
@@ -38,27 +38,27 @@ class GenderAndAgeSelectionViewBody extends StatelessWidget {
           const AgeSelection(),
           const Spacer(),
           BlocProvider(
-            create: (context) => FinishedButtonCubit(),
-            child: BlocListener<FinishedButtonCubit, FinishedButtonState>(
+            create: (context) => ButtonCubit(),
+            child: BlocListener<ButtonCubit, ButtonState>(
               listener: (context, state) {
-                if (state is FinishedButtonSuccess) {
+                if (state is ButtonSuccess) {
                   GoRouter.of(context).go(AppRouter.kSigninEmailView);
                 }
               },
-              child: BlocBuilder<FinishedButtonCubit, FinishedButtonState>(
+              child: BlocBuilder<ButtonCubit, ButtonState>(
                 builder: (context, state) {
-                  if (state is FinishedButtonLoading) {
+                  if (state is ButtonLoading) {
                     return const Center(child: CircularProgressIndicator());
                   }
 
-                  if (state is FinishedButtonFailure) {
+                  if (state is ButtonFailure) {
                     return const Center(child: Text('there is an error'));
                   }
 
                   return CustomButton(
                     text: 'Finish',
                     onTap: () {
-                      context.read<FinishedButtonCubit>().clickButton(
+                      context.read<ButtonCubit>().clickButton(
                             usecase: SignupUsecase(),
                             params: userCreationReq,
                           );

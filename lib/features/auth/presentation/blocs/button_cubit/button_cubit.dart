@@ -20,7 +20,11 @@ class ButtonCubit extends Cubit<ButtonState> {
         },
       );
     } catch (e) {
-      emit(ButtonFailure(message: e.toString()));
+      emit(
+        ButtonFailure(
+          message: e.toString(),
+        ),
+      );
     }
   }
 }

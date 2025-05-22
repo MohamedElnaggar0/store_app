@@ -20,4 +20,9 @@ class AuthRepositoryImpl implements AuthRepository {
   Future<Either> signin(UserSigninReq userSigninReq) async {
     return await s1<AuthFirebaseService>().singnin(userSigninReq);
   }
+
+  @override
+  Future<Either> changePassword(String email) async {
+    return await s1<AuthFirebaseService>().changePassword(email);
+  }
 }

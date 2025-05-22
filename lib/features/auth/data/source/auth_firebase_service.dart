@@ -9,6 +9,7 @@ abstract class AuthFirebaseService {
   Future<Either> getAge();
 
   Future<Either> singnin(UserSigninReq userSigninReq);
+  Future<Either> changePassword(String email);
 }
 
 class AuthFirebaseServiceImpl implements AuthFirebaseService {
@@ -74,6 +75,16 @@ class AuthFirebaseServiceImpl implements AuthFirebaseService {
       } else {
         return left('حدث خطأ أثناء تسجيل الدخول');
       }
+    }
+  }
+
+  @override
+  Future<Either> changePassword(String email) async {
+    try {
+      await FirebaseAuth.instance.sendPasswordResetEmail(email: email);
+      return right('success');
+    } catch (e) {
+      return left('error');
     }
   }
 }
